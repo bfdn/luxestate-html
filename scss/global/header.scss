@@ -1,0 +1,134 @@
+.header {
+    height: 50px;
+    color: $color-menu;
+    font-family: $font;
+    font-weight: 600;
+
+    @include mq('tablet') {
+        height: 90px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: pxtoem(10px);
+        padding-right: pxtoem(10px);
+        padding-top: pxtoem(15px);
+
+        @include mq('tablet') {
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 0;
+
+            height: 100%;
+        }
+    }
+
+    &__switch {
+        display: block;
+        cursor: pointer;
+
+        @include mq('tablet') {
+            display: none;
+        }
+    }
+
+    &__logo {
+        margin-left: 10px;
+
+        @include mq('tablet') {
+            flex-basis: 10%;
+        }
+    }
+
+
+    .menu__list {
+        pointer-events: none;
+        color: $color-menu;
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 5%;
+        width: 100%;
+        transition: all 500ms;
+        background-color: $color-white;
+
+        @include mq('tablet') {
+            opacity: 1;
+            pointer-events: auto;
+            position: initial;
+            display: flex;
+            flex-direction: row;
+            flex-basis: 70%;
+            margin-left: 5px;
+            background-color: transparent;
+        }
+
+        @include mq('desktop') {
+            //margin-left: 225px;
+            margin-left: pxtoem(150px);
+        }
+
+        &--show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .menu__item {
+            border-bottom: 1px solid #eaeaea;
+
+            @include mq('tablet') {
+                border: none;
+                margin-right: pxtoem(10px);
+            }
+
+            @include mq('desktop') {
+                margin-right: pxtoem($gutter);
+            }
+
+            &::last-child {
+                margin-right: 0;
+            }
+        }
+
+        .menu__link {
+            display: block;
+            line-height: 30px;
+            padding-left: pxtoem(10px);
+        }
+    }
+
+    &__right {
+        @include mq('tablet') {
+            flex-basis: 34%;
+        }
+
+        @include mq('desktop') {
+            flex-basis: 30%;
+        }
+
+
+
+        .header__join {
+            display: none;
+
+            @include mq('tablet') {
+                display: inline-block;
+                margin-right: pxtoem($gutter);
+            }
+        }
+
+        .header__btn {
+            display: none;
+
+            @include mq('tablet') {
+                display: inline-block;
+                background-color: $color-yellow;
+            }
+        }
+
+
+    }
+}
